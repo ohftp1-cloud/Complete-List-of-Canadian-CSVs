@@ -12,7 +12,7 @@ fsa_raw <- read.csv("https://raw.githubusercontent.com/ohftp1-cloud/masters-proj
 #detect string length and only keep the ones that are 3 long
 fsa_raw <- fsa_raw %>% 
   mutate(across(everything(), as.character)) %>% 
-  pivot_longer(V1:V10662, names_to = "x", values_to = "y") %>% 
+  pivot_longer(V1:V10662, values_to = "y") %>% 
   mutate(length = str_length(y)) %>% 
   filter(length == 3)
 
